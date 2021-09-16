@@ -25,3 +25,8 @@ module Market =
           Pair = pair
           Price = price
           Time = time }
+
+type IBlottersApi =
+    { 
+        getBlotters: unit -> Async<Blotter list>
+    }
