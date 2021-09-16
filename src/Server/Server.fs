@@ -3,6 +3,7 @@ module Server
 open Giraffe
 open Saturn
 open FSharp.Control.Tasks
+open Npgsql.FSharp
 
 open Shared
 
@@ -70,3 +71,24 @@ let app =
     }
 
 run app
+
+let connectionString : string =
+    Sql.host "localhost"
+    |> Sql.database "dvdrental"
+    |> Sql.username "postgres"
+    |> Sql.password "postgres"
+    |> Sql.port 5432
+    |> Sql.formatConnectionString
+
+let getAllBlotters (connectionString: string) : Blotter list =
+    connectionString
+    |> Sql.connect
+    |> Sql.query "SELECT * FROM blotters"
+    |> Sql.execute (fun read ->
+        {
+            Id = System.Guid "blotter_id"
+            DateTime = read.dateTime "date_time"
+            Price = read.float "price"
+            Quantity = read.int "quantity"
+            Pair = read.string "pair"
+        })
