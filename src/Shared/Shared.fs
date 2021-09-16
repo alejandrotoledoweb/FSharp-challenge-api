@@ -3,7 +3,8 @@ open System
 
 module Route =
     let hello = "/api/hello"
-    let blotter = "/api/blotter"
+    let blotters = "/api/blotters"
+    let markets = "/api/markets"
 
 type Blotter = { Id: Guid; DateTime: DateTime; Price: float; Quantity: int; Pair: string }
 
