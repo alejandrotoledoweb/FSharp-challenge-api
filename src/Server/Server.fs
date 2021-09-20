@@ -2,7 +2,6 @@ module Server
 
 open Giraffe
 open Saturn
-open FSharp.Control.Tasks
 open Npgsql.FSharp
 
 open Shared
@@ -42,21 +41,14 @@ let loadMarketsInfo =
 let blottersApi =
         { getBlotters = fun () -> async { return storage.GetBlotters() }}
 
-// let getBlotters next ctx =
-//     json (loadBlottersInfo()) next ctx
-
-// let getMarkets next ctx =
-//     json (loadMarketsInfo()) next ctx
-
 storage.AddBlotter(Blotter.create (System.DateTime()) 1.4528 1500 "GBP/USD")
 |> ignore
 
 let webApp =
     router {
-        get Route.hello (text "Hello from SAFE!")
-        // get Route.blotters (json (storage.GetBlotters))
-        get Route.blotters (json (loadBlottersInfo))
-        get Route.markets (json (loadMarketsInfo))
+        get Route.blotters (json (storage.GetBlotters))
+        // get Route.markets (json (loadMarketsInfo))
+        get Route.markets (json (storage.GetBlotters))
         post Route.newblotters (json (storage.AddBlotter))
         post Route.newmarkets (json (storage.AddMarket))
     }
