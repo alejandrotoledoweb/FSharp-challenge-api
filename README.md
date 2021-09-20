@@ -1,4 +1,45 @@
-# SAFE Template
+# Brick Adobe F# coding challenge to build an API
+  
+  This project was part of a coding challenge at Brick Adobe.
+  The objective was to build a sample application that work in the back end of the proposed project according to the mockups images showed by the developer at Brick Adobe. Using the SAFE template of the language F#(F sharp) and for this specific project I am using the minimal template.
+  I am using postgresql for the database.
+
+
+## End points
+
+### get "/api/blotters"
+
+to get all the blotter from the users.
+
+Example:
+
+`{ Id: Guid; DateTime: DateTime; Price: float; Quantity: int; Pair: string }`
+
+### get "/api/markets"
+
+to get all the values from the market.
+
+Example:
+`{ Id: Guid; Provider: string; Pair: string; Price: float; Time: DateTime}`
+
+### post "/api/new/blotters"
+
+to get all the blotter from the users.
+
+Example:
+
+`{ Id: Guid; DateTime: DateTime; Price: float; Quantity: int; Pair: string }`
+
+### post "/api/new/markets"
+
+to get all the values from the market.
+
+Example:
+`{ Id: Guid; Provider: string; Pair: string; Price: float; Time: DateTime}`
+
+
+
+# F#(SAFE Template)
 
 This template can be used to generate a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/). It was created using the dotnet [SAFE Template](https://safe-stack.github.io/docs/template-overview/). If you want to learn more about the template why not start with the [quick start](https://safe-stack.github.io/docs/quickstart/) guide?
 

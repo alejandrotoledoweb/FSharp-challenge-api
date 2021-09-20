@@ -2,11 +2,10 @@ namespace Shared
 open System
 
 module Route =
-    let hello = "/api/hello"
     let blotters = "/api/blotters"
-    let newblotters = "/api/newblotters"
+    let newblotters = "/api/new/blotters"
     let markets = "/api/markets"
-    let newmarkets = "/api/newmarkets"
+    let newmarkets = "/api/new/markets"
 
 type Blotter = { Id: Guid; DateTime: DateTime; Price: float; Quantity: int; Pair: string }
 
