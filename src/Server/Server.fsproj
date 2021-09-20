@@ -11,6 +11,7 @@
     <ProjectReference Include="..\Shared\Shared.fsproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
     <PackageReference Include="Saturn" Version="0.15.0-preview03" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,10 @@ namespace Shared
 open System
 
 module Route =
-    let hello = "/api/hello"
-    let blotter = "/api/blotter"
+    let blotters = "/api/blotters"
+    let newblotters = "/api/new/blotters"
+    let markets = "/api/markets"
+    let newmarkets = "/api/new/markets"
 
 type Blotter = { Id: Guid; DateTime: DateTime; Price: float; Quantity: int; Pair: string }
 
@@ -24,3 +26,9 @@ module Market =
           Pair = pair
           Price = price
           Time = time }
+
+type IBlottersApi =
+    { 
+        getBlotters: unit -> Async<Blotter list>
+    }
+
