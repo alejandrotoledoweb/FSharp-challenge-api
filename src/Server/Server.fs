@@ -57,8 +57,8 @@ let webApp =
         // get Route.blotters (json (storage.GetBlotters))
         get Route.blotters (json (loadBlottersInfo))
         get Route.markets (json (loadMarketsInfo))
-        post Route.blotters (json (storage.AddBlotter))
-        post Route.markets (json (storage.AddMarket))
+        post Route.newblotters (json (storage.AddBlotter))
+        post Route.newmarkets (json (storage.AddMarket))
     }
 
 let app =

@@ -4,7 +4,9 @@ open System
 module Route =
     let hello = "/api/hello"
     let blotters = "/api/blotters"
+    let newblotters = "/api/newblotters"
     let markets = "/api/markets"
+    let newmarkets = "/api/newmarkets"
 
 type Blotter = { Id: Guid; DateTime: DateTime; Price: float; Quantity: int; Pair: string }
 
@@ -30,3 +32,4 @@ type IBlottersApi =
     { 
         getBlotters: unit -> Async<Blotter list>
     }
+
