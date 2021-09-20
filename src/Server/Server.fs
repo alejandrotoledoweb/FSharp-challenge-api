@@ -84,3 +84,16 @@ let getAllBlotters (connectionString: string) : Blotter list =
             Quantity = read.int "quantity"
             Pair = read.string "pair"
         })
+
+let getAllMarkets (connectionString: string) : Market list =
+    connectionString
+    |> Sql.connect
+    |> Sql.query "SELECT * FROM markets"
+    |> Sql.execute (fun read ->
+        {
+            Id = System.Guid "market_id"
+            Provider = read.string "provider"
+            Pair = read.string "pair"
+            Price = read.float "price"
+            Time = read.dateTime "date_time"
+        })
